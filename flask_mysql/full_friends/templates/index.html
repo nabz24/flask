@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>friends</title>
+  </head>
+  <body>
+
+    {% for friend in friends %}
+    <p>First Name: {{ friend['first_name'] }} Last Name:{{ friend['last_name']}} Occ: {{friend['occupation']}}</p>
+      <form action="/delete/{{friend['id']}}" method ='POST'>
+
+      <input type="submit" value="Delete">
+      </form>
+      <form action="/edit/{{friend['id']}}" method = ['POST']>
+      <input type="submit" value="EDIT">
+      </form>
+    {% endfor %}
+
+  <form action="/process" method='POST'>
+  First Name: <input type="text" name="firstname">
+  Last Name: <input type="text" name="lastname">
+  Occupation: <input type="text" name="occupation">
+  <input type="submit" value="Submit">
+  </form>
+  </body>
+</html>
